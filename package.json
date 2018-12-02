@@ -8,8 +8,8 @@
   "main": "debug.js",
   "scripts": {
     "test": "node debug.js",
-    "start": "node debug.js",
-    "heroku-postbuild": "next build"
+    "start": "node debug.js"
+    
 
   },
   "author": "razindra firman",
