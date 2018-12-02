@@ -1,0 +1,14 @@
+{
+  "name": "totaljsid",
+  "version": "1.0.0",
+  "description": "dia si nomer #1",
+  "main": "debug.js",
+  "scripts": {
+    "test": "node debug.js",
+    "start": "node debug.js",
+    "heroku-postbuild": "next build"
+
+  },
+  "author": "razindra firman",
+  "license": "ISC"
+}

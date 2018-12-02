@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=10" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="robots" content="all,follow" />
+	<link rel="stylesheet" href="//cdn.componentator.com/spa.min@15.css" />
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,700" />
+	<link rel="stylesheet" href="@{global.css}" />
+	<script src="//cdn.componentator.com/spa.min@15.js"></script>
+	@{import('meta', 'head', 'default.css', 'default.js', 'favicon.ico')}
+</head>
+<body data-jc="exec,binder,modificator">
+
+	<div data-jc="loading" class="hidden"></div>
+	<div data-jc="cookie2@1" class="hidden">This site uses cookies for visitor statistics. By continuing to browse the site you are agreeing to our use of cookies. <a href="/privacy/">Privacy Policy</a></div>
+
+	<div class="container">
+
+		<header>
+
+			<div class="mainmenubutton">
+				<button id="mainmenubutton"><i class="fa fa-navicon"></i></button>
+			</div>
+
+			<a href="/" class="logo"><img src="/img/logo2.svg" title="Total.js framework" border="0" class="img-responsive" /></a>
+<!--			<a href="https://czechandslovakcentury.com" class="logo" target="_blank"><img src="/img/100years.svg" title="Celebrate 100 years of the Czechoslovakian Independence" border="0" class="img-responsive" /></a>
+            <div class="fs11 center" style="color:#A0A0A0">100 years of Czechoslovakia</div>-->
+
+			<nav class="mainmenu">
+				@{foreach m in global.navigations.mainmenu.children}
+					<a href="@{m.url}"@{if m.target !== '_self'} target="_blank"@{fi}@{if m.contains(url)} class="selected"@{fi}>@{m.name}</a>
+				@{end}
+			</nav>
+
+			<nav class="secondmenu">
+				@{foreach m in global.navigations.submenu.children}
+					<a href="@{m.url}"@{if m.target !== '_self'} target="_blank"@{fi}>@{if m.icon}<i class="fa fa-@{m.icon}"></i>@{fi}@{m.name}</a>
+				@{end}
+			</nav>
+		</header>
+		<div class="content">
+
+			<div class="locale">
+				<a href="https://www.totaljs.de" target="_blank" title="Total.js Deutschland"><img src="@{'de.png'}" alt="Total.js Deutschland" border="0" width="16" /></a>
+			</div>
+			<ul class="breadcrumb">
+				@{if url === '/'}
+				<li><a href="/"><i class="fa fa-home"></i>Node.js framework</a></li>
+				@{else}
+				@{foreach m in sitemap()}
+					<li><a href="@{m.url}">@{if index === 0}<i class="fa fa-home"></i>@{fi}@{m.name}</a></li>
+				@{end}
+				@{fi}
+			</ul>
+
+			@{body}
+		</div>
+	</div>
+
+	<footer>
+		<nav>
+		@{foreach m in global.navigations.footer.children}
+			<a href="@{m.url}">@{m.name}</a>
+		@{end}
+		</nav>
+		<div>@(All rights reserved &copy; 2017-2018)</div>
+	</footer>
+
+	<script src="@{global.js}"></script>
+    @{if repository.page && repository.page.template === 'menu'}
+    <script src="https://codefund.io/scripts/0fbcef31-bca0-4b75-890d-d499fd5e1505/embed.js?template=vertical&theme=light" defer></script>
+    @{fi}
+
+</body>
+</html>
