@@ -6,8 +6,8 @@
 
 const options = {};
 
-options.ip = '0.0.0.0';
-options.port = parseInt(process.argv[2]);
+//options.ip = '0.0.0.0';
+//options.port = parseInt(process.argv[2]);
 // options.config = { name: 'Total.js' };
 // options.sleep = 3000;
 
